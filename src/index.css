@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rock {
+  from {
+    transform: rotate(-2deg);
+  }
+  to {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-rock {
+  animation: rock 2.4s ease-in-out infinite alternate;
+  transform-origin: 70% 70%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-spin-slow,
+  .animate-rock {
+    animation: none !important;
+  }
+}
