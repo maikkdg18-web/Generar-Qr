@@ -1,5 +1,6 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { SITE_NAME } from '../lib/site'
 import ThemeToggle from './ThemeToggle'
 import ProfileMenu from './ProfileMenu'
 import { LogoutIcon, PlusIcon, QrIcon } from './icons'
@@ -47,9 +48,31 @@ export default function Layout() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-4 py-8 pb-24 sm:pb-8">
+      <main className="mx-auto max-w-5xl px-4 py-8 pb-4 sm:pb-8">
         <Outlet />
       </main>
+
+      <footer className="border-t border-violet-100/80 px-4 py-6 pb-24 dark:border-white/10 sm:pb-6">
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 text-xs text-slate-400 dark:text-slate-500 sm:flex-row sm:justify-between">
+          <span>
+            © {new Date().getFullYear()} {SITE_NAME}
+          </span>
+          <nav className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+            <Link to="/acerca-de" className="hover:text-violet-600 dark:hover:text-violet-400">
+              Acerca de
+            </Link>
+            <Link to="/terminos-de-uso" className="hover:text-violet-600 dark:hover:text-violet-400">
+              Términos de Uso
+            </Link>
+            <Link to="/politica-de-privacidad" className="hover:text-violet-600 dark:hover:text-violet-400">
+              Privacidad
+            </Link>
+            <Link to="/contacto" className="hover:text-violet-600 dark:hover:text-violet-400">
+              Contacto
+            </Link>
+          </nav>
+        </div>
+      </footer>
 
       <nav className="fixed inset-x-0 bottom-0 z-10 flex items-center justify-around border-t border-violet-100 bg-white/90 py-2 backdrop-blur-md dark:border-white/10 dark:bg-slate-950/90 sm:hidden">
         {user ? (

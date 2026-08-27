@@ -8,6 +8,10 @@ import DashboardPage from './pages/DashboardPage'
 import CreateQrPage from './pages/CreateQrPage'
 import QrDetailPage from './pages/QrDetailPage'
 import EditQrPage from './pages/EditQrPage'
+import AboutPage from './pages/AboutPage'
+import TermsPage from './pages/TermsPage'
+import PrivacyPage from './pages/PrivacyPage'
+import ContactPage from './pages/ContactPage'
 
 export default function App() {
   return (
@@ -25,6 +29,10 @@ export default function App() {
                 <Route path="/qrs/:id" element={<QrDetailPage />} />
                 <Route path="/qrs/:id/edit" element={<EditQrPage />} />
               </Route>
+              <Route path="/acerca-de" element={<AboutPage />} />
+              <Route path="/terminos-de-uso" element={<TermsPage />} />
+              <Route path="/politica-de-privacidad" element={<PrivacyPage />} />
+              <Route path="/contacto" element={<ContactPage />} />
             </Route>
           </Routes>
         </AuthProvider>
